@@ -1,0 +1,32 @@
+buildscript {
+    ext { //플러그인 의존성 관리를 위한 설정
+        springBootVersion = '2.1.7.RELEASE'
+    }
+
+    repositories {
+        mavenCentral() //이전에 사용하던 저장소. 많은 과정과 설정이 필요해서 업로드가 힘듦
+        jcenter() //라이브러리 업로드를 간단하게 함
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+//플러그인 의존성 적용을 위한 결정 코드
+apply plugin : 'java'
+apply plugin : 'eclipse'
+apply plugin : 'org.springframework.boot'
+apply plugin : 'io.spring.dependency-management' //스프링부트의 의존성을 관리해주는 플러그인
+
+group 'com.jojoldu.book'
+version '1.0-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories { //repositories는 각종 의존성들을 어떤 원격 저장소에서 받을지 정함
+    mavenCentral()
+}
+
+dependencies { //프로젝트 개발에 필요한 의존성들을 선언함
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
