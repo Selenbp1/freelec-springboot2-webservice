@@ -1,6 +1,5 @@
 package com.jojoldu.book.springboot.user;
 
-import com.jojoldu.book.springboot.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
